@@ -24,6 +24,8 @@
         .option('-n, --projectName [value]', 'Codacy Project Name')
         .option('-c, --commit [value]', 'Commit SHA hash')
         .option('-l, --language [value', 'Project Language')
+        .option('-p, --partial', 'Send partial report')
+        .option('-p, --final', 'Report that all reports were sent')
         .option('-e, --endpoint [value]', 'Codacy API Endpoint')
         .option('-p, --prefix [value]', 'Project path prefix')
         .option('-v, --verbose', 'Display verbose output')
@@ -35,8 +37,8 @@
         debug: program.debug
     });
 
-    loggerImpl.info(util.format('Started with: token [%j], accountToken [%j], username [%j], projectName [%j], commitId [%j], language [%j], endpoint [%j], format [%j], path prefix [%j], verbose [%j], debug [%j]',
-        program.token, program.accountToken, program.username, program.projectName, program.commit, program.language, program.endpoint, program.format, program.prefix, program.verbose, program.debug));
+    loggerImpl.info(util.format('Started with: token [%j], accountToken [%j], username [%j], projectName [%j], commitId [%j], language [%j], partial[%j], final[%j], endpoint [%j], format [%j], path prefix [%j], verbose [%j], debug [%j]',
+        program.token, program.accountToken, program.username, program.projectName, program.commit, program.language, program.partial, program.final, program.endpoint, program.format, program.prefix, program.verbose, program.debug));
 
     process.stdin.on('end', function () {
         loggerImpl.trace('Received file through stdin');
